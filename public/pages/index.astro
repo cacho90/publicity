@@ -1,0 +1,77 @@
+---
+import ciudades from "../data/ciudades.json";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>AnunciaLocal</title>
+  <meta
+    name="description"
+    content="Directorio de negocios, comercios y servicios por ciudad."
+  />
+</head>
+
+<body>
+  <header>
+    <h1>AnunciaLocal</h1>
+    <p>Negocios y servicios por ciudad</p>
+  </header>
+
+  <main>
+    <h2>Ciudades disponibles</h2>
+
+    <div class="grid">
+      {ciudades.map((ciudad) => (
+        <a href={`/${ciudad.slug}/`} class="card">
+          <h3>{ciudad.nombre}</h3>
+          <p>{ciudad.provincia}</p>
+        </a>
+      ))}
+    </div>
+  </main>
+</body>
+</html>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f8fafc;
+}
+
+header{
+  background:#0f172a;
+  color:white;
+  padding:40px;
+  text-align:center;
+}
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#111827;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+</style>

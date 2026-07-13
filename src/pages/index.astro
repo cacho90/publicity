@@ -1,0 +1,54 @@
+---
+import ciudades from "../data/ciudades.json";
+import { db } from "../firebase.js";
+import { collection, addDoc } from "firebase/firestore";
+
+async function guardarCampaña(e) {
+  e.preventDefault();
+  const nombre = e.target.nombre.value;
+  const mensaje = e.target.mensaje.value;
+
+  await addDoc(collection(db, "campañas"), {
+    nombre,
+    mensaje,
+    fecha: new Date()
+  });
+
+  alert("Campaña guardada en Firebase!");
+}
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AnunciaLocal</title>
+</head>
+
+<body>
+  <header>
+    <h1>AnunciaLocal</h1>
+    <p>Negocios y servicios por ciudad</p>
+  </header>
+
+  <main>
+    <h2>Ciudades disponibles</h2>
+    <div class="grid">
+      {ciudades.map((ciudad) => (
+        <a href={`/${ciudad.slug}/`} class="card">
+          <h3>{ciudad.nombre}</h3>
+          <p>{ciudad.provincia}</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Enviar campaña publicitaria</h2>
+    <form onsubmit="guardarCampaña(event)">
+      <input type="text" name="nombre" placeholder="Nombre campaña" required />
+      <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+</body>
+</html>

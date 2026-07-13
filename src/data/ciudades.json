@@ -1,0 +1,16 @@
+[
+  {
+ "slug": "corrientes",
+    "nombre": "Corrientes",
+    "provincia": "Corrientes",
+    "titulo": "Publicidad y negocios en Corrientes",
+    "descripcion": "Encontrá comercios y servicios en Corrientes."
+  },
+  {
+    "slug": "resistencia",
+    "nombre": "Resistencia",
+    "provincia": "Chaco",
+    "titulo": "Publicidad y negocios en Resistencia",
+    "descripcion": "Guía local de comercios, servicios y promociones en Resistencia."
+  }
+]

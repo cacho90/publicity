@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "restaurantes",
+    "nombre": "Restaurantes",
+    "keywords": ["comer", "cenar", "almorzar", "restaurante", "restaurantes", "pizza", "hamburguesa"]
+  },
+  {
+    "slug": "cafeterias",
+    "nombre": "Cafeterías",
+    "keywords": ["cafe", "cafeteria", "cafeterías", "desayunar", "merendar"]
+  },
+  {
+    "slug": "hoteles",
+    "nombre": "Hoteles",
+    "keywords": ["dormir", "hotel", "hoteles", "alojarme", "hospedaje", "hospedarme"]
+  },
+  {
+    "slug": "farmacias",
+    "nombre": "Farmacias",
+    "keywords": ["farmacia", "farmacias", "medicamento", "remedio"]
+  },
+  {
+    "slug": "electricistas",
+    "nombre": "Electricistas",
+    "keywords": ["electricista", "electricidad", "luz", "instalacion electrica"]
+  },
+  {
+    "slug": "servicio-tecnico",
+    "nombre": "Servicio técnico",
+    "keywords": ["reparar celular", "arreglar celular", "arreglar pc", "computadora", "notebook", "servicio tecnico"]
+  }
+]

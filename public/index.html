@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Asistente Mistral con Voz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #chat-container {
+      width: 450px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #chat-header {
+      background: #4a90e2;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #f9f9f9;
+    }
+    .msg {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    .user {
+      background: #d1e7ff;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .bot {
+      background: #e2f0d9;
+      align-self: flex-start;
+      text-align: left;
+    }
+    #input-area {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    #input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+    #send-btn, #mic-btn {
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #send-btn:hover, #mic-btn:hover {
+      background: #357ABD;
+    }
+    #mic-btn.active {
+      background: #e24a4a;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-header">🤖 Asistente Mistral</div>
+    <div id="messages"></div>
+    <div id="input-area">
+      <input id="input" type="text" placeholder="Escribe tu mensaje...">
+      <button id="send-btn">Enviar</button>
+      <button id="mic-btn">🎤</button>
+    </div>
+  </div>
+
+  <script>
+    const messagesDiv = document.getElementById("messages");
+    const input = document.getElementById("input");
+    const sendBtn = document.getElementById("send-btn");
+    const micBtn = document.getElementById("mic-btn");
+
+    function addMessage(text, type) {
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("msg", type);
+      msgDiv.textContent = text;
+      messagesDiv.appendChild(msgDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    async function sendMessage(msg) {
+      if (!msg) return;
+      addMessage("Tú: " + msg, "user");
+
+      try {
+        const response = await fetch("backend.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ pregunta: msg })
+        });
+        const data = await response.json();
+        addMessage("Asistente: " + data.respuesta, "bot");
+      } catch (error) {
+        addMessage("Error al conectar con el servidor.", "bot");
+      }
+    }
+
+    sendBtn.addEventListener("click", () => {
+      const msg = input.value.trim();
+      if (msg) {
+        sendMessage(msg);
+        input.value = "";
+      }
+    });
+
+    input.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        const msg = input.value.trim();
+        if (msg) {
+          sendMessage(msg);
+          input.value = "";
+        }
+      }
+    });
+
+    // 🎤 Reconocimiento de voz
+    let recognition;
+    if ("webkitSpeechRecognition" in window) {
+      recognition = new webkitSpeechRecognition();
+      recognition.lang = "es-ES";
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        input.value = transcript;
+        sendMessage(transcript);
+      };
+
+      recognition.onend = function() {
+        micBtn.classList.remove("active");
+      };
+
+      micBtn.addEventListener("click", () => {
+        if (micBtn.classList.contains("active")) {
+          recognition.stop();
+          micBtn.classList.remove("active");
+        } else {
+          recognition.start();
+          micBtn.classList.add("active");
+        }
+      });
+    } else {
+      micBtn.disabled = true;
+      micBtn.textContent = "🎤 (no soportado)";
+    }
+  </script>
+</body>
+</html>

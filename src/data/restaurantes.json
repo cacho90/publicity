@@ -1,0 +1,37 @@
+[
+  {
+    "ciudad": "corrientes",
+    "nombre": "Restaurante Ejemplo 1",
+    "descripcion": "Comida regional y platos tradicionales.",
+    "rating": 4.8,
+    "telefono": "3794000000"
+  },
+  {
+    "ciudad": "corrientes",
+    "nombre": "Restaurante Ejemplo 2",
+    "descripcion": "Parrilla, minutas y menú familiar.",
+    "rating": 4.7,
+    "telefono": "3794111111"
+  },
+  {
+    "ciudad": "corrientes",
+    "nombre": "Restaurante Ejemplo 3",
+    "descripcion": "Pizzas, pastas y comidas rápidas.",
+    "rating": 4.6,
+    "telefono": "3794222222"
+  },
+  {
+    "ciudad": "corrientes",
+    "nombre": "Restaurante Ejemplo 4",
+    "descripcion": "Restaurante céntrico con buena atención.",
+    "rating": 4.5,
+    "telefono": "3794333333"
+  },
+  {
+    "ciudad": "corrientes",
+    "nombre": "Restaurante Ejemplo 5",
+    "descripcion": "Ideal para cenar en pareja o familia.",
+    "rating": 4.4,
+    "telefono": "3794444444"
+  }
+]

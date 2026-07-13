@@ -1,0 +1,18 @@
+[
+  {
+    "ciudad": "corrientes",
+    "titulo": "Restaurante El Buen Sabor",
+    "rubro": "Restaurante",
+    "descripcion": "Comidas caseras, menú diario y atención familiar.",
+    "telefono": "3794000000",
+    "destacado": true
+  },
+  {
+    "ciudad": "corrientes",
+    "titulo": "Electricista Matías",
+    "rubro": "Electricidad",
+    "descripcion": "Instalaciones, reparaciones y urgencias eléctricas.",
+    "telefono": "3794111111",
+    "destacado": false
+  }
+]
