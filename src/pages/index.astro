@@ -1,69 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="AnunciaLocal">
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4">
-      <h1 class="text-3xl font-bold text-gray-900">AnunciaLocal</h1>
-      <p class="text-gray-600">Encuentra restaurantes confiables en tu ciudad</p>
+<BaseLayout title="Inicio">
+  <section>
+    <h2 class="text-2xl font-semibold mb-4">Ciudades disponibles</h2>
+    <ul class="grid grid-cols-2 gap-4">
+      <li><a href="/ciudades/corrientes" class="block bg-white shadow rounded p-4">Corrientes</a></li>
+      <li><a href="/ciudades/resistencia" class="block bg-white shadow rounded p-4">Resistencia</a></li>
+      <li><a href="/ciudades/chaco" class="block bg-white shadow rounded p-4">Chaco</a></li>
+    </ul>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold mb-4">Restaurantes destacados</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-bold">La Parrilla Corrientes</h3>
+        <p class="text-gray-600">Carnes premium y ambiente familiar.</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-bold">Sabores del Chaco</h3>
+        <p class="text-gray-600">Comida regional con ingredientes frescos.</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-bold">Resistencia Gourmet</h3>
+        <p class="text-gray-600">Alta cocina en un entorno elegante.</p>
+      </div>
     </div>
-  </header>
-
-  <main class="max-w-7xl mx-auto py-10 px-4 space-y-12">
-    <!-- Ciudades -->
-    <section>
-      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Ciudades disponibles</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-        <a href="#" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Corrientes</a>
-        <a href="#" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Resistencia</a>
-        <a href="#" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Chaco</a>
-      </div>
-    </section>
-
-    <!-- Restaurantes destacados -->
-    <section>
-      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Restaurantes destacados</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-          <img src="/images/restaurante1.jpg" alt="Restaurante 1" class="w-full h-40 object-cover" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">La Parrilla Corrientes</h3>
-            <p class="text-gray-600">Carnes premium y ambiente familiar.</p>
-            <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
-          </div>
-        </div>
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-          <img src="/images/restaurante2.jpg" alt="Restaurante 2" class="w-full h-40 object-cover" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Sabores del Chaco</h3>
-            <p class="text-gray-600">Comida regional con ingredientes frescos.</p>
-            <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
-          </div>
-        </div>
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-          <img src="/images/restaurante3.jpg" alt="Restaurante 3" class="w-full h-40 object-cover" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Resistencia Gourmet</h3>
-            <p class="text-gray-600">Alta cocina en un entorno elegante.</p>
-            <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Opiniones -->
-    <section>
-      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Opiniones de clientes</h2>
-      <div class="space-y-4">
-        <blockquote class="bg-white shadow rounded-lg p-4">
-          <p class="text-gray-700">“Excelente atención y comida de primera. Volveré sin dudas.”</p>
-          <footer class="text-sm text-gray-500 mt-2">– Juan, Corrientes</footer>
-        </blockquote>
-        <blockquote class="bg-white shadow rounded-lg p-4">
-          <p class="text-gray-700">“Un lugar que transmite confianza y calidad en cada plato.”</p>
-          <footer class="text-sm text-gray-500 mt-2">– María, Resistencia</footer>
-        </blockquote>
-      </div>
-    </section>
-  </main>
+  </section>
 </BaseLayout>
