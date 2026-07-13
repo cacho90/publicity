@@ -1,52 +1,69 @@
 ---
-import ciudades from "../data/ciudades.json";
-
-async function guardarCampaña(e) {
-  e.preventDefault();
-  const nombre = e.target.nombre.value;
-  const mensaje = e.target.mensaje.value;
-
-  await addDoc(collection(db, "campañas"), {
-    nombre,
-    mensaje,
-    fecha: new Date()
-  });
-
-  alert("Campaña guardada en Firebase!");
-}
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AnunciaLocal</title>
-</head>
-
-<body>
-  <header>
-    <h1>AnunciaLocal</h1>
-    <p>Negocios y servicios por ciudad</p>
+<BaseLayout title="AnunciaLocal">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4">
+      <h1 class="text-3xl font-bold text-gray-900">AnunciaLocal</h1>
+      <p class="text-gray-600">Encuentra restaurantes confiables en tu ciudad</p>
+    </div>
   </header>
 
-  <main>
-    <h2>Ciudades disponibles</h2>
-    <div class="grid">
-      {ciudades.map((ciudad) => (
-        <a href={`/${ciudad.slug}/`} class="card">
-          <h3>{ciudad.nombre}</h3>
-          <p>{ciudad.provincia}</p>
-        </a>
-      ))}
-    </div>
+  <main class="max-w-7xl mx-auto py-10 px-4 space-y-12">
+    <!-- Ciudades -->
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Ciudades disponibles</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <a href="#" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Corrientes</a>
+        <a href="#" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Resistencia</a>
+        <a href="#" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Chaco</a>
+      </div>
+    </section>
 
-    <h2>Enviar campaña publicitaria</h2>
-    <form onsubmit="guardarCampaña(event)">
-      <input type="text" name="nombre" placeholder="Nombre campaña" required />
-      <textarea name="mensaje" placeholder="Mensaje" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
+    <!-- Restaurantes destacados -->
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Restaurantes destacados</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="/images/restaurante1.jpg" alt="Restaurante 1" class="w-full h-40 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold">La Parrilla Corrientes</h3>
+            <p class="text-gray-600">Carnes premium y ambiente familiar.</p>
+            <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
+          </div>
+        </div>
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="/images/restaurante2.jpg" alt="Restaurante 2" class="w-full h-40 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold">Sabores del Chaco</h3>
+            <p class="text-gray-600">Comida regional con ingredientes frescos.</p>
+            <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
+          </div>
+        </div>
+        <div class="bg-white shadow rounded-lg overflow-hidden">
+          <img src="/images/restaurante3.jpg" alt="Restaurante 3" class="w-full h-40 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold">Resistencia Gourmet</h3>
+            <p class="text-gray-600">Alta cocina en un entorno elegante.</p>
+            <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opiniones -->
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Opiniones de clientes</h2>
+      <div class="space-y-4">
+        <blockquote class="bg-white shadow rounded-lg p-4">
+          <p class="text-gray-700">“Excelente atención y comida de primera. Volveré sin dudas.”</p>
+          <footer class="text-sm text-gray-500 mt-2">– Juan, Corrientes</footer>
+        </blockquote>
+        <blockquote class="bg-white shadow rounded-lg p-4">
+          <p class="text-gray-700">“Un lugar que transmite confianza y calidad en cada plato.”</p>
+          <footer class="text-sm text-gray-500 mt-2">– María, Resistencia</footer>
+        </blockquote>
+      </div>
+    </section>
   </main>
-</body>
-</html>
+</BaseLayout>
