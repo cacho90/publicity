@@ -2,54 +2,29 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout title="Inicio">
-  <!-- Hero con imagen de fondo y contraste -->
-  <section class="h-screen bg-cover bg-center relative" 
-           style="background-image: url('https://copilot.microsoft.com/th/id/BCO.9e6bbb61-2d31-4486-86ff-a64e8d3a8072.png');">
-    <!-- Overlay oscuro para contraste -->
-    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center">
-      <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">Bienvenido al Restaurante</h1>
-      <p class="mt-4 text-lg text-gray-200">Descubre restaurantes confiables en tu ciudad</p>
-      <a href="#ciudades" class="mt-6 bg-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700">Explorar ciudades</a>
-    </div>
-  </section>
-
-  <!-- Ciudades disponibles -->
-  <section id="ciudades" class="max-w-7xl mx-auto py-12 px-4">
-    <h2 class="text-2xl font-semibold mb-6">Ciudades disponibles</h2>
+  <section>
+    <h2 class="text-2xl font-semibold mb-6 drop-shadow-lg">Ciudades disponibles</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-      <a href="/ciudades/corrientes" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Corrientes</a>
-      <a href="/ciudades/resistencia" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Resistencia</a>
-      <a href="/ciudades/chaco" class="bg-white shadow rounded-lg p-6 hover:shadow-lg transition">Chaco</a>
+      <a href="/ciudades/corrientes" class="bg-white bg-opacity-90 text-black shadow rounded-lg p-6 hover:shadow-lg transition">Corrientes</a>
+      <a href="/ciudades/resistencia" class="bg-white bg-opacity-90 text-black shadow rounded-lg p-6 hover:shadow-lg transition">Resistencia</a>
+      <a href="/ciudades/chaco" class="bg-white bg-opacity-90 text-black shadow rounded-lg p-6 hover:shadow-lg transition">Chaco</a>
     </div>
   </section>
 
-  <!-- Restaurantes destacados -->
-  <section class="max-w-7xl mx-auto py-12 px-4">
-    <h2 class="text-2xl font-semibold mb-6">Restaurantes destacados</h2>
+  <section class="mt-12">
+    <h2 class="text-2xl font-semibold mb-6 drop-shadow-lg">Restaurantes destacados</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white shadow rounded-lg overflow-hidden">
-        <img src="/images/restaurante.jpg" alt="Restaurante destacado" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-bold">La Parrilla Corrientes</h3>
-          <p class="text-gray-600">Carnes premium y ambiente familiar.</p>
-          <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
-        </div>
+      <div class="bg-white bg-opacity-90 text-black shadow rounded-lg p-6">
+        <h3 class="text-lg font-bold">La Parrilla Corrientes</h3>
+        <p class="text-gray-700">Carnes premium y ambiente familiar.</p>
       </div>
-      <div class="bg-white shadow rounded-lg overflow-hidden">
-        <img src="/images/restaurante.jpg" alt="Restaurante destacado" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-bold">Sabores del Chaco</h3>
-          <p class="text-gray-600">Comida regional con ingredientes frescos.</p>
-          <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
-        </div>
+      <div class="bg-white bg-opacity-90 text-black shadow rounded-lg p-6">
+        <h3 class="text-lg font-bold">Sabores del Chaco</h3>
+        <p class="text-gray-700">Comida regional con ingredientes frescos.</p>
       </div>
-      <div class="bg-white shadow rounded-lg overflow-hidden">
-        <img src="/images/restaurante.jpg" alt="Restaurante destacado" class="w-full h-40 object-cover" />
-        <div class="p-4">
-          <h3 class="text-lg font-bold">Resistencia Gourmet</h3>
-          <p class="text-gray-600">Alta cocina en un entorno elegante.</p>
-          <button class="mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Reservar</button>
-        </div>
+      <div class="bg-white bg-opacity-90 text-black shadow rounded-lg p-6">
+        <h3 class="text-lg font-bold">Resistencia Gourmet</h3>
+        <p class="text-gray-700">Alta cocina en un entorno elegante.</p>
       </div>
     </div>
   </section>
