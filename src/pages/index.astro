@@ -2,11 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout title="Inicio">
-  <!-- Hero con imagen externa -->
+  <!-- Hero con imagen de fondo y contraste -->
   <section class="h-screen bg-cover bg-center relative" 
            style="background-image: url('https://copilot.microsoft.com/th/id/BCO.9e6bbb61-2d31-4486-86ff-a64e8d3a8072.png');">
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center">
-      <h1 class="text-4xl md:text-6xl font-bold text-white">Bienvenido al Restaurante</h1>
+    <!-- Overlay oscuro para contraste -->
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">Bienvenido al Restaurante</h1>
       <p class="mt-4 text-lg text-gray-200">Descubre restaurantes confiables en tu ciudad</p>
       <a href="#ciudades" class="mt-6 bg-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700">Explorar ciudades</a>
     </div>
